@@ -23,7 +23,7 @@ const produtos = [
   },
 ];
 
-const Ex2 = () => {
+const Exjsx2 = () => {
 
   // transformando os precos de string para numeros, e filtrando apenas os que for maior que 1500
   const dados = produtos.filter(({preco}) => Number(preco.replace("R$ ", "")) > 1500)
@@ -44,4 +44,4 @@ const Ex2 = () => {
   );
 };
 
-export default Ex2
+export default Exjsx2

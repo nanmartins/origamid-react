@@ -27,7 +27,7 @@ const luana = {
 //   ativa: false,
 // };
 
-const Ex1 = () => {
+const Exjsx1 = () => {
   const dados = luana;
 
   const total = dados.compras.map((item) =>
@@ -46,4 +46,4 @@ const Ex1 = () => {
   );
 };
 
-export default Ex1;
+export default Exjsx1;
