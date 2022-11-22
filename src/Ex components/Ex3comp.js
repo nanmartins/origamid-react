@@ -1,7 +1,8 @@
 import React from 'react'
 import Home from './Home';
-import Produtos from './Produtos';
+// import Produtos from './Produtos';
 import Header from './Header';
+import App from '../Ex useState/App';
 
 
 const Ex3comp = () => {
@@ -10,7 +11,7 @@ const Ex3comp = () => {
   let Url = Home;
 
     if(pathname === '/produtos') {
-      Url = Produtos
+      Url = App
     } else {
       Url = Home
     }
