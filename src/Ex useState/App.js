@@ -21,7 +21,7 @@ const App = () => {
       <button style={{margin: '5px'}} onClick={handleClick}>notebook</button>
       <button style={{margin: '5px'}} onClick={handleClick}>smartphone</button>
       <button style={{margin: '5px'}} onClick={handleClick}>tablet</button>
-      {/* caso dados existir, o que nao eh true ja que o state inicial de dados eh null, renderiza produto */}
+      {/* caso {dados} existir, o que nao eh true ja que o state inicial de dados eh null, renderiza produto */}
       {loading ? <h4>Carregando...</h4> : null}
       {dados && !loading ? <Produto dados={dados} /> : null}
     </div>

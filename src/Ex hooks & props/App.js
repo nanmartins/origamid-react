@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div>
       <Modal modal={modal} setModal={setModal} />
-      <ButtonModal setModal={setModal} />
+      {!modal && <ButtonModal setModal={setModal} />}
     </div>
   )
 }
