@@ -29,18 +29,18 @@ export default function Home() {
 
   return (
     <>
-        <ul>
-          {dados.map((produto) => (
-            <li key={produto.id}>
-              <h1>{produto.nome}</h1>
-              <p>{produto.preco}</p>
-              <ul>
-                {produto.cores.map((cor) => (
-                  <li key={cor} style={{background: cor, color: 'white'}}>{cor}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
+      <ul>
+        {dados.map((produto) => (
+          <li key={produto.id}>
+            <h1>{produto.nome}</h1>
+            <p>{produto.preco}</p>
+            <ul>
+              {produto.cores.map((cor) => (
+                <li key={cor} style={{background: cor, color: 'white'}}>{cor}</li>
+              ))}
+            </ul>
+          </li>
+        ))}
       </ul>
     </>
   )
