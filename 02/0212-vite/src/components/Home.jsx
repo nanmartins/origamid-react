@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <>
       <Titulo texto="Home" />
-      <p style={{ textAlign: 'center' }}>Essa é a homepage do site.</p>
+      <p style={{marginLeft: '1rem'}}>Essa é a homepage do site.</p>
     </>
   )
 }
