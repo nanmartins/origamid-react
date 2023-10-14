@@ -4,6 +4,7 @@ import Produto from './Produto'
 const Header = () => {
 
   const [dados, setDados] = React.useState(null)
+  const [url, setUrl] = React.useState('')
 
   const btnStyle = {
     boxSizing: 'border-box',
@@ -14,39 +15,27 @@ const Header = () => {
   }
 
 
-  function handleClick(url) {
-    // const { pathname } = window.location
-    // localStorage.setItem('path', pathname)
-    // console.log(pathname, localStorage)
+  React.useEffect(() => {
+    if (localStorage.getItem('produto')) {
+      setUrl(localStorage.getItem('produto'))
+    }
+  }, [])
 
-    // fetch(`https://ranekapi.origamid.dev/json/api/produto${url}`)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setDados(data)
-    //   })
-  }
-
-
-  // React.useEffect(() => {
-  //   function handleClick(url) {
-  //     // const { pathname } = window.location
-  //     // localStorage.setItem('path', pathname)
-  //     // console.log(pathname, localStorage)
-
-  //     fetch(`https://ranekapi.origamid.dev/json/api/produto${url}`)
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setDados(data)
-  //       })
-  //   }
-  // }, [])
+  React.useEffect(() => {
+    fetch(`https://ranekapi.origamid.dev/json/api/produto/${url}`)
+    .then((response) => response.json())
+    .then((data) => {
+      setDados(data)
+      localStorage.setItem('produto', url)
+    })
+  }, [url])
 
   return (
     <header>
       <div>
-        <h1>Preferencia: </h1>
-        <a href="/notebook" onClick={handleClick('/notebook')} style={btnStyle}>notebook</a>
-        <a href="/smartphone" onClick={handleClick('/smartphone')} style={btnStyle}>smartphone</a>
+        <h1>Preferencia: {dados && dados.nome}</h1>
+        <button onClick={() => setUrl('notebook')} style={btnStyle}>Notebook</button>
+        <button onClick={() => setUrl('smartphone')} style={btnStyle}>Smartphone</button>
       </div>
 
       {dados && <Produto dados={dados} />}
