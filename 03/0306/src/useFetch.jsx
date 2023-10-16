@@ -5,13 +5,26 @@ const useFetch = () => {
   const [error, setError] = React.useState(null)
   const [loading, setLoading] = React.useState(false)
 
-  async function request(url, options) {
-    const response = await fetch(url, options)
-    const json = await response.json()
-    setData(json)
-  }
+  const request = React.useCallback(async(url, options) => {
+    let response
+    let json
 
-  return{
+    try {
+      setError(null)
+      setLoading(true)
+      const response = await fetch(url, options)
+      const json = await response.json()
+      setData(json)
+    }
+    catch(erro) {
+      setError('Erro ao carregar os dados')
+    } finally {
+      setLoading(false)
+      return {response, json}
+    }
+  }, [])
+
+  return {
     data,
     error,
     loading,
