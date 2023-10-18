@@ -79,6 +79,9 @@ function App() {
 
   const [resposta, setResposta] = React.useState('')
   const [form, setForm] = React.useState(forms)
+  const [termos, setTermos] = React.useState(false)
+  const [notificacao, setNotificacao] = React.useState([])
+
 
   function handleChange({target}) {
     const {id, value} = target
@@ -87,20 +90,32 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    fetch('https://ranekapi.origamid.dev/json/api/usuario', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form),
-    })
-    .then(response => {
-      if(response.status === 200) {
-        setResposta('Cadastrado com sucesso!')
-      } else {
-        setResposta('Erro ao cadastrar!')
-      }
-    })
+    if(termos) {
+      fetch('https://ranekapi.origamid.dev/json/api/usuario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+      .then(response => {
+        if(response.status === 200) {
+          setResposta('Cadastrado com sucesso!')
+        } else {
+          setResposta('Erro ao cadastrar!')
+        }
+      })
+    } else {
+      setResposta('Preencha os termos de uso!')
+    }
+  }
+
+  function handleNotificacao({target}) {
+    if(target.checked) {
+      setNotificacao([...notificacao, target.value])
+    } else {
+      setNotificacao(notificacao.filter(item => item !== target.value))
+    }
   }
 
   return (
@@ -114,10 +129,42 @@ function App() {
           </div>
         ))}
 
+        <label htmlFor="">
+          <input type="checkbox" checked={termos} value="Termos" onChange={({target}) => setTermos(target.checked)} style={formStyle} />
+          Aceito os termos
+        </label>
+
+        <div>
+          <p style={formStyle}>Receber notifications?</p>
+          <label>
+            <input
+              type="checkbox"
+              value="email"
+              checked={notificacao.includes('email')}
+              onChange={handleNotificacao}
+              style={{marginLeft: '10px'}}
+            />
+            Email
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="sms"
+              checked={notificacao.includes('sms')}
+              onChange={handleNotificacao}
+              style={{marginLeft: '10px'}}
+            />
+            SMS
+          </label>
+        </div>
+
+        <br />
         <button onClick={handleSubmit} style={formStyle}>Enviar</button>
 
         {resposta && <h2>{resposta}</h2>}
       </form>
+
+
     </>
   )
 }
