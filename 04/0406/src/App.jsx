@@ -3,45 +3,32 @@ import Input from './Form/Input'
 import Select from './Form/Select'
 import Radio from './Form/Radio'
 import Checkbox from './Form/Checkbox'
+import useForm from './Hooks/useForm'
 
 function App() {
 
-  const [nome, setNome] = React.useState('')
-  const [email, setEmail] = React.useState('')
+  // const [nome, setNome] = React.useState('')
+  // const [email, setEmail] = React.useState('')
   const [produto, setProduto] = React.useState('')
   const [cor, setCor] = React.useState('')
   const [frutas, setFrutas] = React.useState('')
   const [linguagens, setLinguagens] = React.useState([])
   const [termos, setTermos] = React.useState([])
-  const [cep, setCep] = React.useState('')
-  const [error, setError] = React.useState(null)
+
+  const cep = useForm('cep')
+  const email = useForm('email')
+  const nome = useForm()
+  const sobrenome = useForm(false)
 
 
-  const validateCep = ((value) => {
-    if(value.length === 0) {
-      setError('Preencha um valor.')
-      return false
-    } else if (!/^\d{5}-?\d{3}$/.test(value)) {
-      setError('CEP inválido.')
-      return false
-    } else {
-      setError(null)
-      return true
-    }
-  })
 
-  const handleBlur = (({target}) => {
-    validateCep(target.value)
-  })
 
-  const handleChange = (({target}) => {
-    if(error) validateCep(target.value)
-    setCep(target.value)
-  })
+
+
 
   const handleSubmit = ((e) => {
     e.preventDefault()
-    if(validateCep(cep)) {
+    if(cep.validate && email.validate && nome.validate) {
       console.log('enviou')
     } else {
       console.log('erro')
@@ -55,41 +42,49 @@ function App() {
 
   return (
     <>
-    <div>
-    <form onSubmit={handleSubmit}>
+      <div>
+      <form onSubmit={handleSubmit}>
+
+      <Input
+        type="text"
+        label="Nome"
+        id="nome"
+        {...nome}
+      />
+      <br />
+
+      <Input
+        type="text"
+        label="Sobrenome"
+        id="sobrenome"
+        {...sobrenome}
+      />
+      <br />
+
+
+      <Input
+        type="email"
+        label="Email"
+        id="email"
+        {...email}
+      />
+      <br />
+
       <Input
         type="text"
         label="CEP"
         id="cep"
-        value={cep}
-        setValue={setCep}
-        onBlur={handleBlur}
-        onChange={handleChange}
         placeholder="00000-000"
+        {...cep}
       />
-      {error && <p>{error}</p>}
       <br />
+
       <button onClick={handleSubmit}>Enviar</button>
       </form>
     </div>
 
 
       <form style={{width: '175px'}}>
-        <Input
-          id="nome"
-          label="Nome"
-          value={nome}
-          setValue={setNome}
-          required
-        />
-        <Input
-          id="email"
-          label="Email"
-          value={email}
-          setValue={setEmail}
-          required
-        />
-
         <div>
           <Select options={['Notebook', 'Smartphone', 'Tablet']} value={produto} setValue={setProduto}/>
         </div>
