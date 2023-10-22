@@ -96,8 +96,8 @@ function App() {
             cursor: 'pointer',
           }}
         >
-
-            Próxima</button>
+          Próxima
+        </button>
       )}
       </form>
     </>
