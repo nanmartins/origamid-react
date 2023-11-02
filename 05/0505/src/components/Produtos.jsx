@@ -2,7 +2,10 @@ import React from 'react'
 
 const Produtos = () => {
   return (
-    <div>Produtos</div>
+    <div className='animeZoom'>
+      <h2>Produtos</h2>
+      <p>Nossos produtos</p>
+    </div>
   )
 }
 
