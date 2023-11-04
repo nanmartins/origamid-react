@@ -6,9 +6,24 @@ body, html {
 
 a {
   text-decoration: none;
-  color: rgb(32, 32, 32);
+}
+
+.home-nav a {
+  color: rgb(25, 150, 25);
 }
 
 #nav a.active {
   color: rgb(25, 150, 25);
+  position: relative;
 }
+
+/* #nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(25, 150, 25);
+  color: rgb(25, 150, 25);
+} */

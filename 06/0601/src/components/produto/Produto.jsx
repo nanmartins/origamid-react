@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route, useLocation, useParams, NavLink } from 'r
 const Produto = () => {
 
   const params = useParams()
-
   const key = '*'
   const color = params[key] === '' ? { color: 'rgb(25, 150, 25)' } : { color: 'black' }
   // const location = useLocation()
