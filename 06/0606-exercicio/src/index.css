@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+nav a {
+  background-color: #eee;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a.active {
+  background-color: #d1d1d1;
+}
