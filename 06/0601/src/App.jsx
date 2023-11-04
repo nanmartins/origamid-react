@@ -5,7 +5,7 @@ import Sobre from './views/Sobre'
 import Header from './components/Header'
 import Login from './views/Login'
 import Pagina404 from './views/Pagina404'
-import Produto from './views/Produto'
+import Produto from './components/produto/Produto'
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
           <Route path='/' element={<Home />}></Route>
           <Route path='sobre' element={<Sobre />}></Route>
           <Route path='login' element={<Login />}></Route>
-          <Route path='produto/:id' element={<Produto />}></Route>
+          <Route path='produto/:id/*' element={<Produto />}></Route>
           <Route path='*' element={<Pagina404 />}></Route>
         </Routes>
       </div>
