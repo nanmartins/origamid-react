@@ -2,7 +2,8 @@ import React from 'react'
 import ProdutoDescricao from './ProdutoDescricao'
 import ProdutoAvaliacao from './ProdutoAvaliacao'
 import ProdutoCostumizado from './ProdutoCostumizado'
-import { BrowserRouter, Routes, Route, useLocation, useParams, NavLink } from 'react-router-dom'
+import { Routes, Route, useLocation, useParams, NavLink } from 'react-router-dom'
+import Head from '../../services/Head'
 
 const Produto = () => {
 
@@ -14,6 +15,7 @@ const Produto = () => {
 
   return (
     <>
+    <Head title={params.id} description='Pagina de detalhes do produto'/>
       <h1>Produto: {params.id}</h1>
 
       <nav id='nav' style={{ display: 'flex', gap: '10px', alignItems: 'center'}}>

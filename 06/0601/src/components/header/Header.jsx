@@ -6,7 +6,7 @@ const Header = () => {
   const location = useLocation()
 
   React.useEffect(() => {
-    console.log('Mudou de rota para', location.pathname)
+    // console.log('Mudou de rota para', location.pathname)
   }, [location])
 
   return (
