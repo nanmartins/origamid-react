@@ -11,7 +11,7 @@ function App() {
 
   const handleClick = () => {
     // setOlho(olho + 2)
-    for(let i = 0; i < 5; i++) {
+    for(let i = 0; i < 4; i++) {
       setTimeout(() => {
         setOlho(i)
       }, 30 * i);
