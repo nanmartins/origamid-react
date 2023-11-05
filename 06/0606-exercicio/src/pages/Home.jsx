@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <Head title='Home' description='Descrição da Home' />
-      <section style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '900px', justifyContent: 'space-between', margin: '0 auto' }}>
+      <section className='animaZoom' style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '900px', justifyContent: 'space-between', margin: '0 auto' }}>
         {dados.map(produto => (
           <div key={produto.id} style={{ flex: '0 0 calc(33.33% - 10px)', marginBottom: '20px' }}>
             <NavLink to={`/produto/${produto.id}`} style={{ textDecoration: 'none', color: 'black' }}>

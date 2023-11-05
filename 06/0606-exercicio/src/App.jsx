@@ -17,7 +17,7 @@ function App() {
     <>
       <BrowserRouter>
 
-        <section style={{ display: 'grid', placeItems: 'center', margin: '0 20px'}}>
+        <section className='main-container'>
 
           <div style={{ width: '100%', maxWidth: '900px' }}>
             <Header />
