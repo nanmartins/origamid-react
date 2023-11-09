@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Header from './components/Header/Header'
 import Contato from './pages/Contato'
+import Produtos from './pages/Produtos'
 import Produto from './components/Produto/Produto'
 import Footer from './components/Footer/Footer'
 
@@ -25,6 +26,7 @@ function App() {
           <div style={{ width: '100%', maxWidth: '900px' }}>
             <Routes>
               <Route path='' element={<Home />}></Route>
+              <Route path='produtos' element={<Produtos />}></Route>
               <Route path='contato' element={<Contato />}></Route>
               <Route path='produto/:id/*' element={<Produto />}></Route>
             </Routes>

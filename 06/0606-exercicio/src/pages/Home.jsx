@@ -1,37 +1,28 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import Head from '../services/Head'
 
 const Home = () => {
-
-  const [dados, setDados] = React.useState([])
-
-  React.useEffect(() => {
-    fetch('https://ranekapi.origamid.dev/json/api/produto')
-      .then(resp => resp.json())
-      .then(data => {
-        setDados(data)
-      })
-  }, [])
 
   return (
     <>
       <Head title='Home' description='Descrição da Home' />
 
+      <div style={ {margin: '50px 0' }}>
+        <img style={{ width: '100%' }} src="https://images.unsplash.com/photo-1517059224940-d4af9eec41b7?q=80&w=2610&auto=format&
+        fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+      </div>
 
-      <section className='animaZoom' style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '900px', justifyContent: 'space-between', margin: '0 auto' }}>
+      <section>
 
-        <h1 style={{ width: '100%', fontSize: '30px', fontWeight: '600', textAlign: 'center', margin: '30px 0'}}>Produtos</h1>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center', height: '20vh' }}>
+          <h2 style={{ fontSize: '32px', fontWeight: '900', margin: '0' }}>Ranek</h2>
+          <p style={{ fontSize: '20px', fontWeight: '600' }}>Descrição da Home</p>
+        </div>
 
-        {dados.map(produto => (
-          <div key={produto.id} style={{ flex: '0 0 calc(33.33% - 10px)', marginBottom: '20px' }}>
-            <NavLink to={`/produto/${produto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-              <img src={produto.fotos[0].src} width={275} style={{ borderRadius: '8px' }}/>
-              <h3 style={{ marginTop: '5px', fontSize: '20px', fontWeight: '900', color: 'rgb(59, 59, 59)'}}>{produto.nome}</h3>
-            </NavLink>
-          </div>
-        ))}
       </section>
+
+
     </>
   )
 }

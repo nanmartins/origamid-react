@@ -16,10 +16,12 @@ const Header = () => {
 
   return (
     <nav style={navStyle}>
-      <p style={{ display: 'flex', fontSize: '36px', margin: '0', fontWeight: '900' }}>Ranek</p>
+      <NavLink to='/' className={({ isActive }) => isActive ? 'logo-style-active' : 'logo-style'} >
+        <p style={{ display: 'flex', fontSize: '36px', margin: '0', fontWeight: '900' }}>Ranek</p>
+      </NavLink>
 
       <div style={{ display: 'flex', gap: '20px'}}>
-        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/produtos'>Produtos</NavLink>
         <NavLink to='/contato'>Contato</NavLink>
       </div>
     </nav>

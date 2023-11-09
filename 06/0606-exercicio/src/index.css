@@ -14,16 +14,43 @@ nav a {
 }
 
 nav a.active {
-  background-color: #d1d1d1;
+  background-color: rgb(22, 22, 22);
+  color: #eee;
 }
+
+
+a.logo-style-active, a.logo-style {
+  background-color: rgb(22, 22, 22);
+  color: #eee;
+}
+
+a.logo-style-active:hover, a.logo-style:hover {
+  background-color: rgb(22, 22, 22);
+  color: #ffffff;
+}
+
 
 .main-container {
   display: grid;
   place-items: center;
   margin: 0 20px;
   min-height: 85vh;
+  position: relative;
 }
 
+/* HOME */
+.homeBanner {
+  display: block;
+  margin: 50px 0;
+  position: absolute;
+  top: 0;
+  left: -20px;
+}
+
+.homeBanner img {
+  width: calc(100% + 20px);
+  overflow: hidden;
+}
 
 .produtoFoto {
   width: 100%;
