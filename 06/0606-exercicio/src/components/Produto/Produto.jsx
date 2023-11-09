@@ -47,7 +47,7 @@ const Produto = () => {
   return (
     <>
       <Head title={dados.nome} description={dados.descricao} />
-      <section className='animaZoom' style={{ display: 'flex'}}>
+      <section className='animaZoom' style={{ display: 'flex', margin: '50px 0'}}>
         <img src={fotoSrc} width={400} style={produtoFoto} />
         <div style={{ display: 'block', padding: '10px 30px', width: '100%', maxWidth: '350px' }}>
           <h1 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900', color: 'rgb(59, 59, 59)' }}>{dados.nome}</h1>

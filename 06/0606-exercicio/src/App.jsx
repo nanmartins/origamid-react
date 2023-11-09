@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Header from './components/Header/Header'
 import Contato from './pages/Contato'
 import Produto from './components/Produto/Produto'
+import Footer from './components/Footer/Footer'
 
 // Utilize a API abaixo para puxar a lista de produto
 // https://ranekapi.origamid.dev/json/api/produto
@@ -17,10 +18,11 @@ function App() {
     <>
       <BrowserRouter>
 
+        <Header />
+
         <section className='main-container'>
 
           <div style={{ width: '100%', maxWidth: '900px' }}>
-            <Header />
             <Routes>
               <Route path='' element={<Home />}></Route>
               <Route path='contato' element={<Contato />}></Route>
@@ -29,6 +31,8 @@ function App() {
           </div>
 
         </section>
+
+        <Footer />
 
       </BrowserRouter>
     </>

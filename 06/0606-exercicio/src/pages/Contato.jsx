@@ -4,7 +4,7 @@ import Head from '../services/Head'
 
 const Contato = () => {
   return (
-    <section className='animaZoom' style={{ display: 'flex'}}>
+    <section className='animaZoom' style={{ display: 'flex', margin: '50px 0' }}>
       <Head title='Contato' description='Entre em contato com a gente' />
       <img src={Img} width="350px" style={{borderRadius: '8px'}} />
 
