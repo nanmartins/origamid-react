@@ -33,7 +33,7 @@ a.logo-style-active:hover, a.logo-style:hover {
 .main-container {
   display: grid;
   place-items: center;
-  margin: 0 20px;
+  /* margin: 0 20px; */
   min-height: 85vh;
   position: relative;
 }

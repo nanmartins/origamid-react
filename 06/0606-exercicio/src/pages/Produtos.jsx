@@ -26,7 +26,7 @@ const Produtos = () => {
         {dados.map(produto => (
           <div key={produto.id} style={{ flex: '0 0 calc(33.33% - 10px)', marginBottom: '20px' }}>
             <NavLink to={`/produto/${produto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-              <img src={produto.fotos[0].src} width={275} style={{ borderRadius: '8px' }}/>
+              <img src={produto.fotos[0].src} width={275} style={{ borderRadius: '8px', border: '1px solid #d4d4d4' }}/>
               <h3 style={{ marginTop: '5px', fontSize: '20px', fontWeight: '900', color: 'rgb(59, 59, 59)'}}>{produto.nome}</h3>
             </NavLink>
           </div>

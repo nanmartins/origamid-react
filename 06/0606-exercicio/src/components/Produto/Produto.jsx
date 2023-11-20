@@ -8,6 +8,7 @@ const produtoFoto = {
   maxWidth: '400px',
   borderRadius: '8px',
   display: 'flex',
+  border: '1px solid #d4d4d4',
 }
 
 const precoStyle = {
@@ -58,7 +59,7 @@ const Produto = () => {
           ))}
         </div>
 
-        <div style={{ display: 'block', padding: '10px 30px', width: '100%', maxWidth: '350px' }}>
+        <div style={{ display: 'block', padding: '10px 30px', border: '1px solid #d4d4d4', width: 'fit-content', borderRadius: '8px'  }}>
           <h1 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900', color: 'rgb(59, 59, 59)' }}>{dados.nome}</h1>
           <p style={precoStyle}>R$ {dados.preco}</p>
           <p style={{ fontSize: '20px' }}>{dados.descricao}</p>
