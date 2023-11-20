@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import Loading from '../Loading/Loading'
 import Head from '../../services/Head'
@@ -7,7 +7,7 @@ const produtoFoto = {
   width: 'auto',
   maxWidth: '400px',
   borderRadius: '8px',
-  display: 'block',
+  display: 'flex',
 }
 
 const precoStyle = {
@@ -20,35 +20,44 @@ const precoStyle = {
 }
 const Produto = () => {
 
-  const [dados, setDados] = React.useState([])
+  const [dados, setDados] = React.useState(null)
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState(null)
 
-  const params = useParams()
+  const { id } = useParams()
 
   React.useEffect(() => {
-    fetch(`https://ranekapi.origamid.dev/json/api/produto/${params.id}`)
-      .then(resp => resp.json())
-      .then(data => {
+    async function fetchData(url) {
+      try {
+        setLoading(true)
+        const response = await fetch(url)
+        const data = await response.json()
         setDados(data)
-      }, [params.id])
-  })
+      }
+      catch (erro) {
+        setError('Nao foi possivel carregar dados.')
+      }
+      finally {
+        setLoading(false)
+      }
+    }
+    fetchData(`https://ranekapi.origamid.dev/json/api/produto/${id}`)
+  }, [id])
 
-
-    // React.useEffect(() => {
-    //   async function fetchData() {
-    //     const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${params.id}`)
-    //     const data = await response.json()
-    //     setDados(data)
-    //   }
-    //   fetchData()
-    // }, [])
-
-  const fotoSrc = dados.fotos ? dados.fotos[0].src : ''
-
+  if(error) return <p>{error}</p>
+  if(loading) return <Loading />
+  if(dados === null) return null
   return (
     <>
       <Head title={dados.nome} description={dados.descricao} />
-      <section className='animaZoom' style={{ display: 'flex', margin: '50px 0'}}>
-        <img src={fotoSrc} width={400} style={produtoFoto} />
+
+      <section className='animaZoom' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', margin: '50px 0'}}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px'}}>
+          {dados.fotos.map(foto => (
+            <img key={foto.src} style={produtoFoto} src={foto.src } alt="" />
+          ))}
+        </div>
+
         <div style={{ display: 'block', padding: '10px 30px', width: '100%', maxWidth: '350px' }}>
           <h1 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900', color: 'rgb(59, 59, 59)' }}>{dados.nome}</h1>
           <p style={precoStyle}>R$ {dados.preco}</p>

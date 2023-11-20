@@ -75,6 +75,16 @@ a.logo-style-active:hover, a.logo-style:hover {
   margin-right: 20px;
 }
 
+.loading {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 10px solid #ccc;
+  border-right-color: transparent;
+  animation: loading 0.5s infinite;
+  margin: auto;
+}
+
 /* animacoes */
 .animaZoom {
   opacity: 0;
@@ -87,5 +97,11 @@ a.logo-style-active:hover, a.logo-style:hover {
   to {
     opacity: initial;
     transform: initial;
+  }
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
   }
 }
