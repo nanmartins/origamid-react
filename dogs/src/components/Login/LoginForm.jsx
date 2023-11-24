@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Input from '../Forms/Input'
+import Button from '../Forms/Button'
 
 const LoginForm = () => {
 
@@ -24,25 +26,17 @@ const LoginForm = () => {
     })
   }
 
-  // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2RvZ3NhcGkub3JpZ2FtaWQuZGV2IiwiaWF0IjoxNzAwNzk0NTQxLCJuYmYiOjE3MDA3OTQ1NDEsImV4cCI6MTcwMDg4MDk0MSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMTUifX19.wU2XT0yfFDW4w22yPmpLirXhhVyvrF7lP38AejZHxg4
 
   return (
     <section>
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={({target}) => setUsername(target.value)}
-        />
 
-        <input
-          type="password"
-          value={password}
-          onChange={({target}) => setPassword(target.value)}
-        />
+        <Input label="Usuário" type="text" name="username" />
+        <Input label="Senha" type="password" name="password" />
 
-        <button>Entrar</button>
+        <Button>Entrar</Button>
+        {/* <button>Entrar</button> */}
       </form>
 
       <Link to="/login/criar">Criar conta</Link>

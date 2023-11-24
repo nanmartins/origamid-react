@@ -1,8 +1,13 @@
 import React from 'react'
+import Input from '../Forms/Input'
 
 const LoginCreate = () => {
   return (
-    <div>LoginCreate</div>
+    <section>
+      <div>LoginCreate</div>
+
+      <Input />
+    </section>
   )
 }
 
