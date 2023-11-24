@@ -3,9 +3,12 @@ import styles from './Input.module.css'
 
 const Input = ({label, type, name}) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <input id={name} name={name} type={type}/>
+    <div className={styles.wrapper}>
+      <label htmlFor={name} className={styles.label}>
+        {label}
+      </label>
+      <input id={name} name={name} type={type} className={styles.input}/>
+      <p className={styles.error}>Error</p>
     </div>
   )
 }
