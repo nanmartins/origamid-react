@@ -42,7 +42,7 @@ const LoginForm = () => {
       <div className={styles.cadastro}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
         <p>Ainda não possui conta? Cadastre-se aqui.</p>
-        <Link to="/login/criar" className={stylesBtn.button}>Cadastro</Link>
+        <Link to="/login/criar" className={stylesBtn.button} style={{ textAlign: 'center'}}>Cadastro</Link>
       </div>
 
     </section>
