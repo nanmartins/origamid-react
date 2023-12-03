@@ -58,12 +58,14 @@ export const UserStorage = ({children}) => {
           const response = await fetch(url, options)
           if (!response.ok) throw new Error('Token inválido')
           await getUser(token)
-          navigate('/')
+          navigate('/conta')
         } catch (err) {
           userLogout()
         } finally {
           setLoading(false)
         }
+      } else {
+        setLogin(false)
       }
     }
     autoLogin()
