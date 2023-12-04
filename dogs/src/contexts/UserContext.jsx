@@ -18,8 +18,8 @@ export const UserStorage = ({children}) => {
     setLogin(false)
     setError(null)
     window.localStorage.removeItem('token')
-    navigate('/login')
-  }, [navigate])
+    // navigate('/login')
+  }, [])
 
   async function getUser(token) {
     const {url, options} = USER_GET(token)
@@ -39,6 +39,7 @@ export const UserStorage = ({children}) => {
       const {token} = await response.json()
     window.localStorage.setItem('token', token)
     await getUser(token)
+    navigate('/conta')
   } catch (err) {
     setError(err.message)
       setLogin(false)
