@@ -6,7 +6,7 @@ import Error from '../Helpers/Error'
 import Loading from '../Helpers/Loading'
 import { PHOTOS_GET } from '../../data/Data'
 
-const FeedPhotos = () => {
+const FeedPhotos = ({setModalPhoto}) => {
 
   const {data, loading, error, request } = UseFetch()
 
@@ -14,7 +14,6 @@ const FeedPhotos = () => {
     async function fetchPhotos() {
       const {url, options} = PHOTOS_GET({page: 1, total: 20, user: 0})
       const {response, json} = await request(url, options)
-      console.log(json)
     }
     fetchPhotos()
   }, [request])
@@ -25,7 +24,7 @@ const FeedPhotos = () => {
     return (
       <ul className={`${styles.feed} animeLeft` }>
         {data.map(photo => {
-          return <FeedPhotosItem key={photo.id} photo={photo} />
+          return <FeedPhotosItem key={photo.id} photo={photo} setModalPhoto={setModalPhoto} />
         })}
       </ul>
     )
