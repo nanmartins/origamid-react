@@ -6,7 +6,7 @@ import Estatisticas from '../../assets/estatisticas.svg?react'
 import Adicionar from '../../assets/adicionar.svg?react'
 import Sair from '../../assets/sair.svg?react'
 import styles from './UserHeaderNav.module.css'
-import UseMedia from '../../hooks/UseMedia'
+import UseMedia from '../../Hooks/UseMedia'
 
 
 const UserHeaderNav = () => {
@@ -15,7 +15,6 @@ const UserHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext)
   const mobile = UseMedia('(max-width: 40rem)')
   const [mobileMenu, setMobileMenu] = React.useState(false)
-
   const {pathname} = useLocation()
 
   React.useEffect(() => {
