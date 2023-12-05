@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './Home.module.css'
+import Feed from '../../components/Feed/Feed'
 
 const Home = () => {
   return (
-    <div>
-      <h1>Dogs Home</h1>
-    </div>
+    <section className='container mainContainer'>
+      <Feed />
+    </section>
   )
 }
 
