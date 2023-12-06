@@ -82,7 +82,7 @@
   .photo {
     display: grid;
     height: auto;
-    max-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 8rem);
     overflow-y: auto;
     grid-template-columns: 1fr;
   }
