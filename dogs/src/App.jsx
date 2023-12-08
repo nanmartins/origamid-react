@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer'
 import Home from './views/Home/Home'
 import Login from './views/Login/Login'
 import User from './components/User/User'
+import Photo from './components/Photo/Photo'
 import { UserStorage } from './contexts/UserContext'
 import ProtectedRouter from './components/Helpers/ProtectedRouter'
 
@@ -27,6 +28,7 @@ function App() {
                 </ProtectedRouter>
               }
             />
+            <Route path="foto/:id" element={ <Photo /> } />
 
           </Routes>
 
