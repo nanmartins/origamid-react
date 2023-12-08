@@ -1,6 +1,7 @@
 import React from 'react'
 import FeedModal from './FeedModal'
 import FeedPhotos from './FeedPhotos'
+import PropTypes from 'prop-types'
 
 const Feed = ({ user }) => {
 
@@ -14,7 +15,6 @@ const Feed = ({ user }) => {
       if(inifinite) {
         const scroll = window.scrollY
         const height = document.body.offsetHeight - window.innerHeight
-        console.log(`Height: ${height}`)
         if(scroll > height * 0.75 && !wait) {
           setPages((pages) => [...pages, pages.length + 1])
           wait = true
@@ -47,6 +47,17 @@ const Feed = ({ user }) => {
       ))}
     </div>
   )
+}
+
+Feed.defaultProps = {
+  user: 0
+}
+
+Feed.PropTypes = {
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
 }
 
 export default Feed

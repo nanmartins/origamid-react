@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './Home.module.css'
+// import styles from './Home.module.css'
 import Feed from '../../components/Feed/Feed'
-import Loading from '../../components/Helpers/Loading'
+// import Loading from '../../components/Helpers/Loading'
 
 const Home = () => {
   return (
