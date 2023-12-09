@@ -1,8 +1,13 @@
 import React from 'react'
+import Head from '../../components/Helpers/Head'
+
 
 const UserStats = () => {
   return (
-    <div>UserStats</div>
+    <>
+      <Head title="Estatisticas" />
+      <div>UserStats</div>
+    </>
   )
 }
 

@@ -1,7 +1,8 @@
 import React from 'react'
-// import { UserContext } from '../../contexts/UserContext'
 import Feed from '../Feed/Feed'
 import { useParams } from 'react-router-dom'
+import Head from '../../components/Helpers/Head'
+
 
 
 const UserProfile = () => {
@@ -10,6 +11,7 @@ const UserProfile = () => {
 
   return (
     <section className='container mainContainer'>
+      <Head title={user} />
       <h1 className='title'>{user}</h1>
       <Feed user={user} />
     </section>

@@ -1,11 +1,11 @@
 import React from 'react'
-// import styles from './Home.module.css'
 import Feed from '../../components/Feed/Feed'
-// import Loading from '../../components/Helpers/Loading'
+import Head from '../../components/Helpers/Head'
 
 const Home = () => {
   return (
     <section className='container mainContainer'>
+      <Head title='Home' description='Home do site Dogs' />
       <Feed />
     </section>
   )

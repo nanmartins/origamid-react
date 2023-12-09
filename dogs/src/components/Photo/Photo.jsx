@@ -5,6 +5,8 @@ import Error from '../Helpers/Error'
 import Loading from '../Helpers/Loading'
 import PhotoContent from './PhotoContent'
 import { PHOTO_GET } from '../../data/Data'
+import Head from '../../components/Helpers/Head'
+
 
 const Photo = () => {
 
@@ -21,6 +23,7 @@ const Photo = () => {
   if(data) {
     return (
       <section className='container mainContainer'>
+        <Head title={data.photo.title} />
         <PhotoContent data={data} single={true} />
       </section>
     )
