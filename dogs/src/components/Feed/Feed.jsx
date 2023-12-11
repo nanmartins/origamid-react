@@ -1,7 +1,7 @@
 import React from 'react'
 import FeedModal from './FeedModal'
 import FeedPhotos from './FeedPhotos'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 const Feed = ({ user }) => {
 
@@ -53,10 +53,10 @@ Feed.defaultProps = {
   user: 0
 }
 
-Feed.PropTypes = {
-  user: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.number.isRequired
+Feed.propTypes = {
+  user: propTypes.oneOfType([
+    propTypes.string.isRequired,
+    propTypes.number.isRequired
   ]),
 }
 
